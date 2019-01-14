@@ -5,6 +5,11 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
+using SmartphoneShop.Interfaces;
+using SmartphoneShop.Repository;
+using SmartphoneShop.Resolver;
+using Unity;
+using Unity.Lifetime;
 
 namespace SmartphoneShop
 {
@@ -19,6 +24,13 @@ namespace SmartphoneShop
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            
+            // Unity
+            var container = new UnityContainer();
+            container.RegisterType<IShopRepository, ShopRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<ISmartphoneRepository, SmartphoneRepository>(new HierarchicalLifetimeManager());
+            config.DependencyResolver = new UnityResolver(container);
+
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

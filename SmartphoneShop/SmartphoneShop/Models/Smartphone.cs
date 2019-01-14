@@ -39,5 +39,8 @@ namespace SmartphoneShop.Models
         [Required]
         [Range(1, double.MaxValue)]
         public decimal Price { get; set; }
+
+        public int ShopId { get; set; }
+        public Shop Shop { get; set; }
     }
 }
