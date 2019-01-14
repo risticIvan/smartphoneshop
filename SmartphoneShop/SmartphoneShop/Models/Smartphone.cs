@@ -29,15 +29,15 @@ namespace SmartphoneShop.Models
         public decimal Ram { get; set; }
         [Required]
         [Range(1,50)]
-        public int FrontCamera { get; set; }
+        public decimal FrontCamera { get; set; }
         [Required]
         [Range(1,50)]
-        public int BackCamera { get; set; }
+        public decimal BackCamera { get; set; }
         [Required]
         [Range(1, 8000)]
         public int BatteryCapacity {get; set; }
         [Required]
-        [Range(1, double.MaxValue)]
+        [Range(1,2000)]
         public decimal Price { get; set; }
 
         public int ShopId { get; set; }

@@ -26,6 +26,6 @@ namespace SmartphoneShop.Models
         public string Telephone { get; set; }
         [Required]
         [EmailAddress]
-        public int Email { get; set; }
+        public string Email { get; set; }
     }
 }
